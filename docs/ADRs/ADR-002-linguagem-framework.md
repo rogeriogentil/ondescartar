@@ -1,4 +1,4 @@
-# ADR-002: Next.js com TypeScript como stack da aplicação
+# ADR-002: Linguagem e framework da aplicação
 
 - **Status:** proposta
 - **Versão:** 1.0.0

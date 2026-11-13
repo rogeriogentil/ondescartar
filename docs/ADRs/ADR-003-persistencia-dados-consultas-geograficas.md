@@ -1,4 +1,4 @@
-# ADR-003: PostgreSQL com PostGIS como SGBD
+# ADR-003: Persistência de dados e consultas geográficas
 
 - **Status:** proposta
 - **Versão:** 1.0.0

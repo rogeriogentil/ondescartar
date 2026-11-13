@@ -1,4 +1,4 @@
-# ADR-001: Monólito modular com camadas explícitas
+# ADR-001: Estilo arquitetural da aplicação
 
 - **Status:** proposta
 - **Versão:** 1.0.0
