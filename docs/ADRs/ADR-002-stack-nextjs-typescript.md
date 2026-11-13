@@ -1,6 +1,7 @@
 # ADR-002: Next.js com TypeScript como stack da aplicação
 
 - **Status:** proposta
+- **Versão:** 1.0.0
 - **Responsável:** Rogerio J. Gentil
 - **Data:** 2026-11-12
 
