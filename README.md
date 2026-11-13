@@ -23,6 +23,7 @@ Os detalhes e as justificativas estão na documentação abaixo.
 ## Documentação
 - [Requisitos arquiteturais](docs/requisitos-arquiteturais.md): atributos de qualidade, restrições de negócio e princípios de arquitetura.
 - [Registro de decisões de arquitetura (ADRs)](docs/ADRs/README.md): decisões organizadas pelos domínios BDAT do TOGAF.
+- [Convenções do projeto](docs/convencoes/README.md): versionamento e outras regras práticas.
 
 ## Licença
 O código deste repositório é distribuído sob a licença [MIT](LICENSE).

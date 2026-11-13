@@ -24,3 +24,4 @@ Nenhuma ADR registrada ainda. As decisões de negócio (escopo, métricas de suc
 - Cada ADR tem status, versão, domínio, responsável e data no cabeçalho.
 - O nome do arquivo e o título nomeiam o assunto da decisão, e não a decisão tomada.
 - Novas ADRs são acrescentadas na seção do seu domínio principal.
+- A versão segue a [convenção de versionamento](../convencoes/versionamento.md#documentos-e-adrs).
