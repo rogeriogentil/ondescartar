@@ -6,7 +6,8 @@ Plataforma web para ajudar moradores de São Carlos (SP) a encontrar onde descar
 Em fase de definição da arquitetura. Ainda não há código da aplicação.
 
 ## Visão do MVP
-- O usuário escolhe ou digita um item e vê, em um mapa e em uma lista, os locais que o aceitam, com endereço, horário e observações.
+- O usuário escolhe ou digita um item e vê, em uma lista, os locais que o aceitam, com endereço, horário e observações, e um botão "Abrir no mapa" que abre o local em um site de mapas (Google Maps, OpenStreetMap ou Waze).
+- O mapa dentro da aplicação fica para uma versão futura.
 - Foco em uso pelo celular (mobile first), sem cadastro obrigatório.
 - Cobertura inicial limitada a São Carlos.
 - O sucesso é medido pelo número de usuários e de buscas.

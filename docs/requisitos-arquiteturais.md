@@ -5,7 +5,7 @@ Ondescartar é uma plataforma web para moradores de São Carlos (SP) encontrarem
 
 ## Atributos de qualidade (em ordem de prioridade)
 1. **Confiabilidade.** Dados corretos e atualizados dos pontos de descarte (o maior risco do produto) e disponibilidade do serviço. A confiabilidade dos dados pesa mais que a disponibilidade no MVP.
-2. **Usabilidade.** Mobile first: buscar um item e ver os locais que o aceitam em poucos toques.
+2. **Usabilidade.** Mobile first: buscar um item e ver os locais que o aceitam em poucos toques, em uma lista com um link para abrir cada local em um site de mapas. O mapa dentro da aplicação fica para uma versão futura.
 3. **Segurança e privacidade.** Desde o início, em conformidade com a LGPD: sem cadastro obrigatório e sem coletar dados pessoais ou localização exata sem necessidade.
 4. **Desempenho.** Buscas e carregamento de páginas rápidos em rede móvel.
 5. **Observabilidade.** Medir usuários, buscas e falhas, para evoluir o produto e responder à confiabilidade.

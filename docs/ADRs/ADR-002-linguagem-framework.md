@@ -1,10 +1,10 @@
 # ADR-002: Linguagem e framework da aplicação
 
 - **Status:** proposta
-- **Versão:** 1.0.0
+- **Versão:** 1.0.1
 - **Domínio:** Tecnologia
 - **Responsável:** Rogerio J. Gentil
-- **Data:** 2026-11-12
+- **Data:** 2026-11-13
 
 ## Decisão (Y-statement)
 No contexto do **MVP do Ondescartar, construído como monólito modular ([ADR-001](ADR-001-estilo-arquitetural.md))**,
@@ -25,7 +25,7 @@ aceitando que **a separação entre camadas não é imposta pelo framework e dep
 
 ### Benefícios
 - Uma única linguagem no front-end e no back-end, e uma única base de código.
-- Ecossistema grande, com bom suporte a mapas (Leaflet) e a ferramentas de verificação de arquitetura.
+- Ecossistema grande, com bom suporte a mapas (por exemplo, Leaflet, para a versão futura com mapa) e a ferramentas de verificação de arquitetura.
 - Tipagem estática, que ajuda a manter as camadas coerentes.
 
 ### Custos e riscos

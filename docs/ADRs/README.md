@@ -8,7 +8,7 @@ Nenhuma ADR registrada ainda. As decisões de negócio (escopo, métricas de suc
 ## Dados
 | ADR | Título | Status | Versão |
 |---|---|---|---|
-| [ADR-003](ADR-003-persistencia-dados-consultas-geograficas.md) | Persistência de dados e consultas geográficas | proposta | 1.0.0 |
+| [ADR-003](ADR-003-persistencia-dados-consultas-geograficas.md) | Persistência de dados e consultas geográficas | proposta | 1.1.0 |
 
 ## Aplicação
 | ADR | Título | Status | Versão |
@@ -18,7 +18,7 @@ Nenhuma ADR registrada ainda. As decisões de negócio (escopo, métricas de suc
 ## Tecnologia
 | ADR | Título | Status | Versão |
 |---|---|---|---|
-| [ADR-002](ADR-002-linguagem-framework.md) | Linguagem e framework da aplicação | proposta | 1.0.0 |
+| [ADR-002](ADR-002-linguagem-framework.md) | Linguagem e framework da aplicação | proposta | 1.0.1 |
 
 ## Convenções
 - Cada ADR tem status, versão, domínio, responsável e data no cabeçalho.
