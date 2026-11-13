@@ -1,15 +1,15 @@
 # ADR-001: Estilo arquitetural da aplicação
 
 - **Status:** proposta
-- **Versão:** 1.0.0
+- **Versão:** 1.1.0
 - **Domínio:** Aplicação
 - **Responsável:** Rogerio J. Gentil
-- **Data:** 2026-11-12
+- **Data:** 2026-11-13
 
 ## Decisão (Y-statement)
-No contexto do **MVP do Ondescartar, uma plataforma web para moradores de São Carlos**,
+No contexto do **MVP do Ondescartar, uma plataforma web para moradores de São Carlos, que no futuro poderá ter também um aplicativo para celulares**,
 diante da necessidade de **entregar rápido, com custo próximo de zero e com uma equipe de uma pessoa**,
-decidimos por **um monólito modular, com separação explícita entre apresentação e controle (front-end) e negócio, integração e persistência (back-end)**,
+decidimos por **um monólito modular, com separação explícita entre apresentação e controle (front-end) e negócio, integração e persistência (back-end), com a camada de aplicação exposta por uma API HTTP própria e versionada**,
 e não **um monólito não modular (sem fronteiras explícitas entre as camadas) nem um front-end e uma API implantados separadamente**,
 para alcançar **manutenibilidade, testabilidade e evolutividade, respeitando a restrição de custo próximo de zero no MVP e mantendo simples o CI com GitHub Actions**,
 aceitando que **as fronteiras entre camadas dependem de disciplina e de verificação automática, e que o sistema é implantado e escala como uma unidade só**.
@@ -27,6 +27,7 @@ aceitando que **as fronteiras entre camadas dependem de disciplina e de verifica
 - Regras de negócio sem dependência de React, Next.js ou do ORM, testáveis de forma isolada.
 - Persistência e integração acessadas por interfaces, o que facilita trocar mapa, banco ou hospedagem e extrair o back-end depois.
 - Observabilidade centralizada em um só lugar.
+- Uma API HTTP própria e versionada (por exemplo, rotas `/api/v1`), usada tanto pelo site quanto por um futuro aplicativo para celulares, sem lógica de negócio presa à interface do Next.js.
 
 ### Custos e riscos
 - As fronteiras entre camadas não são impostas pela infraestrutura, e dependem de disciplina.
@@ -35,6 +36,8 @@ aceitando que **as fronteiras entre camadas dependem de disciplina e de verifica
   - Mitigação: aceitável para o volume de uma cidade no MVP, e a extração do back-end continua possível.
 - Extrair o back-end mais tarde ainda dá algum retrabalho.
   - Mitigação: manter as interfaces de persistência e integração desde o início.
+- Manter uma API versionada exige cuidado com a compatibilidade entre versões.
+  - Mitigação: mudanças incompatíveis só em uma nova versão das rotas (por exemplo, `/api/v2`).
 
 ### Alternativas descartadas
 - **Monólito não modular:** descartado porque a falta de fronteiras entre camadas dificultaria testar o negócio de forma isolada e extrair o back-end no futuro.

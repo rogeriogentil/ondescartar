@@ -13,7 +13,7 @@ Nenhuma ADR registrada ainda. As decisões de negócio (escopo, métricas de suc
 ## Aplicação
 | ADR | Título | Status | Versão |
 |---|---|---|---|
-| [ADR-001](ADR-001-estilo-arquitetural.md) | Estilo arquitetural da aplicação | proposta | 1.0.0 |
+| [ADR-001](ADR-001-estilo-arquitetural.md) | Estilo arquitetural da aplicação | proposta | 1.1.0 |
 
 ## Tecnologia
 | ADR | Título | Status | Versão |
