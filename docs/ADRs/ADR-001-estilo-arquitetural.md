@@ -40,4 +40,4 @@ aceitando que **as fronteiras entre camadas dependem de disciplina e de verifica
 - **Front-end e API implantados separadamente:** descartado no MVP pelo custo e pela complexidade operacional, e mantido como possível evolução.
 
 ## Referência
-Recomendação de começar por um monólito ("Monolith First", Martin Fowler).
+Recomendação de começar por um monólito ("Monolith First", Martin Fowler): [Monolith First](https://martinfowler.com/bliki/MonolithFirst.html).

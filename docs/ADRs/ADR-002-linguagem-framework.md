@@ -6,7 +6,7 @@
 - **Data:** 2026-11-12
 
 ## Decisão (Y-statement)
-No contexto do **MVP do Ondescartar, construído como monólito modular (ADR-001)**,
+No contexto do **MVP do Ondescartar, construído como monólito modular ([ADR-001](ADR-001-estilo-arquitetural.md))**,
 diante da necessidade de **uma interface web mobile first e de uma única base de código com camadas bem separadas**,
 decidimos por **Next.js com TypeScript, usando React nas telas**,
 e não **NestJS com front-end separado ou Spring Boot**,
@@ -38,4 +38,4 @@ aceitando que **a separação entre camadas não é imposta pelo framework e dep
 - **Spring Boot (Java):** camadas muito explícitas e linguagem conhecida, mas mais trabalhoso para um MVP.
 
 ## Referências
-ADR-001 (monólito modular).
+- [ADR-001: Estilo arquitetural da aplicação](ADR-001-estilo-arquitetural.md)

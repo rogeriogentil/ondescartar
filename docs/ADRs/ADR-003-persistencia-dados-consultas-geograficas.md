@@ -6,7 +6,7 @@
 - **Data:** 2026-11-12
 
 ## Decisão (Y-statement)
-No contexto do **MVP do Ondescartar, monólito modular em Next.js com TypeScript (ADR-001 e ADR-002)**,
+No contexto do **MVP do Ondescartar, monólito modular em Next.js com TypeScript ([ADR-001](ADR-001-estilo-arquitetural.md) e [ADR-002](ADR-002-linguagem-framework.md))**,
 diante da necessidade de **armazenar pontos de descarte com localização, itens aceitos e horários, e de buscá-los por item e por localização**,
 decidimos por **PostgreSQL com a extensão PostGIS**,
 e não **MySQL ou MariaDB, SQLite com SpatiaLite ou MongoDB**,
@@ -44,4 +44,5 @@ aceitando que **há mais configuração e operação do que em um banco embutido
 - **MongoDB:** menos garantias relacionais e de integridade, pior encaixe para dados estruturados e menos recursos geográficos que o PostGIS.
 
 ## Referências
-ADR-001 (monólito modular) e ADR-002 (stack).
+- [ADR-001: Estilo arquitetural da aplicação](ADR-001-estilo-arquitetural.md)
+- [ADR-002: Linguagem e framework da aplicação](ADR-002-linguagem-framework.md)
