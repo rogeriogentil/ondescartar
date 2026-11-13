@@ -16,5 +16,12 @@ Ondescartar é uma plataforma web para moradores de São Carlos (SP) encontrarem
 - Código no GitHub e integração contínua com GitHub Actions.
 - Cobertura inicial limitada a São Carlos.
 
+## Princípios de arquitetura
+- **Monólito primeiro:** começar com um monólito modular e extrair partes só quando houver necessidade.
+- **Separação em camadas:** apresentação e controle separados de negócio, integração e persistência.
+- **Custo próximo de zero no MVP:** preferir soluções abertas, gratuitas ou baratas.
+- **Verificação automatizada:** as regras de arquitetura são verificadas no CI (fitness functions).
+- **Decisões registradas:** toda decisão relevante de arquitetura tem uma ADR.
+
 ## Uso deste documento
-Cada ADR registra o atributo de qualidade ou a restrição que justifica a decisão.
+Cada ADR registra o atributo de qualidade, a restrição ou o princípio que justifica a decisão.

@@ -2,6 +2,7 @@
 
 - **Status:** proposta
 - **Versão:** 1.0.0
+- **Domínio:** Dados (com Tecnologia)
 - **Responsável:** Rogerio J. Gentil
 - **Data:** 2026-11-12
 
