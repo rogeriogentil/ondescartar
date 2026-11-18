@@ -11,7 +11,8 @@
 - **Funções e variáveis:** camelCase.
 - **Casos de uso:** um por arquivo, com verbo no infinitivo (por exemplo, `buscar-pontos-por-item.ts` exporta `buscarPontosPorItem`).
 - **Portas:** nome do papel, sem prefixo `I`, em `aplicacao/portas/` (por exemplo, `RepositorioPontosDescarte`).
-- **Adaptadores:** nome do papel seguido da tecnologia ou da variante (por exemplo, `RepositorioPontosDescartePostgres`, `RepositorioPontosDescarteEmMemoria` e `GeradorLinkMapaGoogleMaps`).
+- **Adaptadores:** nome do papel seguido do mecanismo, e não do produto ou da tecnologia (por exemplo, `RepositorioPontosDescarteSql`, `RepositorioPontosDescarteEmMemoria`, `ClienteGeocodificacaoHttp` e `RegistroMetricasLog`). Assim, trocar o PostgreSQL por outro banco relacional não muda o nome do adaptador.
+- **Variantes de um mesmo mecanismo:** quando o próprio serviço externo é a variante escolhida pelo usuário, o nome do serviço completa o do adaptador (por exemplo, `GeradorLinkMapaGoogleMaps` e `GeradorLinkMapaOpenStreetMap`, os destinos do botão "Abrir no mapa").
 
 ## Testes
 - **Unidade:** `*.test.ts`, ao lado do código testado.
