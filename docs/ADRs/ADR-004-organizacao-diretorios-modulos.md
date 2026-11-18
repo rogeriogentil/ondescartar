@@ -17,14 +17,14 @@ aceitando que **há mais pastas do que código no início, que um módulo só ac
 ## Estrutura
 
 ### Módulos
-O MVP tem dois módulos: `itens` (catálogo de itens e categorias) e `pontos-descarte` (locais, horários e itens aceitos). A busca por item é um caso de uso de `pontos-descarte`, e não um módulo à parte. Os módulos seguem os subdomínios do problema, como no Domain-Driven Design (DDD).
+Cada módulo corresponde a um subdomínio do problema, como no Domain-Driven Design (DDD), e os módulos são definidos à medida que as funcionalidades são especificadas. A título de exemplo, o projeto poderia ter um módulo `itens` (catálogo de itens e categorias) e um módulo `pontos-descarte` (locais, horários e itens aceitos), com a busca por item como um caso de uso de `pontos-descarte`, e não como um módulo à parte.
 
 ```
 src/
 ├── app/                      rotas do App Router do Next.js
 │   └── api/v1/               reservado para a API HTTP versionada
 ├── modulos/
-│   └── <modulo>/             por exemplo, itens e pontos-descarte
+│   └── <modulo>/             um por subdomínio
 │       ├── dominio/
 │       ├── aplicacao/
 │       │   └── portas/
@@ -44,7 +44,7 @@ Um módulo só tem as pastas de camada que usa. Por exemplo, um módulo sem inte
 |---|---|---|
 | `dominio/` | entidades, objetos de valor e regras de negócio, em TypeScript puro | núcleo |
 | `aplicacao/` | casos de uso, um por arquivo, e as interfaces de que eles precisam, em `aplicacao/portas/` | núcleo: os casos de uso são as portas de entrada, e as interfaces, as portas de saída |
-| `infraestrutura/persistencia/` | repositórios no PostgreSQL com PostGIS e versões em memória para testes | adaptadores de saída |
+| `infraestrutura/persistencia/` | repositórios em banco relacional (SQL), hoje no PostgreSQL com PostGIS ([ADR-003](ADR-003-persistencia-dados-consultas-geograficas.md)), e em memória, para testes | adaptadores de saída |
 | `infraestrutura/integracao/` | integração com APIs e sistemas de terceiros, como os sites de mapas do link "Abrir no mapa" e o relógio do sistema | adaptadores de saída |
 | `apresentacao/` | componentes React do módulo | adaptadores de entrada, junto com `app/` |
 | `src/app/` | páginas, layouts e rotas do Next.js | adaptadores de entrada |
