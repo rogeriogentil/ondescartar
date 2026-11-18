@@ -1,7 +1,7 @@
 # ADR-001: Estilo arquitetural da aplicação
 
 - **Status:** proposta
-- **Versão:** 1.1.0
+- **Versão:** 1.2.0
 - **Domínio:** Aplicação
 - **Responsável:** Rogerio J. Gentil
 - **Data:** 2026-11-13
@@ -43,5 +43,6 @@ aceitando que **as fronteiras entre camadas dependem de disciplina e de verifica
 - **Monólito não modular:** descartado porque a falta de fronteiras entre camadas dificultaria testar o negócio de forma isolada e extrair o back-end no futuro.
 - **Front-end e API implantados separadamente:** descartado no MVP pelo custo e pela complexidade operacional, e mantido como possível evolução.
 
-## Referência
-Recomendação de começar por um monólito ("Monolith First", Martin Fowler): [Monolith First](https://martinfowler.com/bliki/MonolithFirst.html).
+## Referências
+- Recomendação de começar por um monólito ("Monolith First", Martin Fowler): [Monolith First](https://martinfowler.com/bliki/MonolithFirst.html).
+- [ADR-004: Organização de diretórios e módulos do código](ADR-004-organizacao-diretorios-modulos.md)
