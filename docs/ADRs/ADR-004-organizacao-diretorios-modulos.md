@@ -44,7 +44,7 @@ Um módulo só tem as pastas de camada que usa. Por exemplo, um módulo sem inte
 |---|---|---|
 | `dominio/` | entidades, objetos de valor e regras de negócio, em TypeScript puro | núcleo |
 | `aplicacao/` | casos de uso, um por arquivo, e as interfaces de que eles precisam, em `aplicacao/portas/` | núcleo: os casos de uso são as portas de entrada, e as interfaces, as portas de saída |
-| `infraestrutura/persistencia/` | repositórios em banco relacional (SQL), hoje no PostgreSQL com PostGIS ([ADR-003](ADR-003-persistencia-dados-consultas-geograficas.md)), e em memória, para testes | adaptadores de saída |
+| `infraestrutura/persistencia/` | repositórios em banco relacional (SQL), na data desta decisão o PostgreSQL com PostGIS ([ADR-003](ADR-003-persistencia-dados-consultas-geograficas.md)), e em memória, para testes | adaptadores de saída |
 | `infraestrutura/integracao/` | integração com APIs e sistemas de terceiros, como os sites de mapas do link "Abrir no mapa" e o relógio do sistema | adaptadores de saída |
 | `apresentacao/` | componentes React do módulo | adaptadores de entrada, junto com `app/` |
 | `src/app/` | páginas, layouts e rotas do Next.js | adaptadores de entrada |
