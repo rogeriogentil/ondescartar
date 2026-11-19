@@ -7,10 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "lint:arquitetura": "depcruise src --config .dependency-cruiser.cjs",
     "verificar-tipos": "tsc --noEmit",
     "test": "vitest run",
     "test:observar": "vitest",
-    "verificar": "npm run lint && npm run verificar-tipos && npm test"
+    "verificar": "npm run lint && npm run lint:arquitetura && npm run verificar-tipos && npm test"
   },
   "dependencies": {
     "next": "16.4.6",
@@ -21,6 +22,7 @@
     "@types/node": "^22.20.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dependency-cruiser": "^18.8.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
     "typescript": "^5",
