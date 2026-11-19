@@ -33,7 +33,8 @@ src/
 │       ├── apresentacao/
 │       └── index.ts          interface pública do módulo
 ├── compartilhado/            dominio/, aplicacao/portas/, infraestrutura/ e apresentacao/ comuns aos módulos
-└── composicao/               monta os casos de uso de cada módulo com os adaptadores concretos
+└── composicao/               uma pasta única para todos os módulos
+    └── <modulo>.ts           monta os casos de uso do módulo com os adaptadores concretos
 ```
 
 Um módulo só tem as pastas de camada que usa. Por exemplo, um módulo sem integração com terceiros não tem `infraestrutura/integracao/`.
