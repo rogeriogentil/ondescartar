@@ -18,3 +18,6 @@
 - **Unidade:** `*.test.ts`, ao lado do código testado.
 - **Integração:** `*.integracao.test.ts`, ao lado do código testado.
 - **Ponta a ponta:** em `tests/e2e/`.
+
+## Estrutura
+A organização de pastas e as regras de importação estão no [ADR-004](../ADRs/ADR-004-organizacao-diretorios-modulos.md).

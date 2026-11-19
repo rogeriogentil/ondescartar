@@ -1,7 +1,7 @@
 # ADR-003: Persistência de dados e consultas geográficas
 
 - **Status:** proposta
-- **Versão:** 1.1.0
+- **Versão:** 1.2.0
 - **Domínio:** Dados (com Tecnologia)
 - **Responsável:** Rogerio J. Gentil
 - **Data:** 2026-11-13
@@ -50,3 +50,4 @@ aceitando que **há mais configuração e operação do que em um banco embutido
 ## Referências
 - [ADR-001: Estilo arquitetural da aplicação](ADR-001-estilo-arquitetural.md)
 - [ADR-002: Linguagem e framework da aplicação](ADR-002-linguagem-framework.md)
+- [ADR-004: Organização de diretórios e módulos do código](ADR-004-organizacao-diretorios-modulos.md)

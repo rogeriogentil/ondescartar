@@ -13,7 +13,7 @@ Em fase de definição da arquitetura. Ainda não há código da aplicação.
 - O sucesso é medido pelo número de usuários e de buscas.
 
 ## Arquitetura
-- Monólito modular, com camadas explícitas.
+- Monólito modular, com camadas explícitas e código organizado por módulos de domínio, no estilo Portas e Adaptadores.
 - Next.js com TypeScript e React.
 - PostgreSQL com PostGIS.
 - Código no GitHub e integração contínua com GitHub Actions.

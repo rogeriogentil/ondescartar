@@ -1,7 +1,7 @@
 # ADR-002: Linguagem e framework da aplicação
 
 - **Status:** proposta
-- **Versão:** 1.0.1
+- **Versão:** 1.1.0
 - **Domínio:** Tecnologia
 - **Responsável:** Rogerio J. Gentil
 - **Data:** 2026-11-13
@@ -30,7 +30,7 @@ aceitando que **a separação entre camadas não é imposta pelo framework e dep
 
 ### Custos e riscos
 - O framework não impõe a separação em camadas.
-  - Mitigação: estrutura de pastas por camada e fitness functions no CI.
+  - Mitigação: estrutura de pastas por módulo, com as camadas dentro de cada módulo, e fitness functions no CI ([ADR-004](ADR-004-organizacao-diretorios-modulos.md)).
 - Dependência do ecossistema Next.js, que evolui rápido.
   - Mitigação: manter a lógica de negócio fora do framework, o que reduz o custo de trocar ou atualizar.
 
@@ -40,3 +40,4 @@ aceitando que **a separação entre camadas não é imposta pelo framework e dep
 
 ## Referências
 - [ADR-001: Estilo arquitetural da aplicação](ADR-001-estilo-arquitetural.md)
+- [ADR-004: Organização de diretórios e módulos do código](ADR-004-organizacao-diretorios-modulos.md)
