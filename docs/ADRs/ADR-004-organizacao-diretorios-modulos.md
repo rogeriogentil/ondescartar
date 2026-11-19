@@ -22,7 +22,6 @@ Cada módulo corresponde a um subdomínio do problema, como no Domain-Driven Des
 ```
 src/
 ├── app/                      rotas do App Router do Next.js
-│   └── api/v1/               reservado para a API HTTP versionada
 ├── modulos/
 │   └── <modulo>/             um por subdomínio
 │       ├── dominio/
@@ -34,7 +33,7 @@ src/
 │       ├── apresentacao/
 │       └── index.ts          interface pública do módulo
 ├── compartilhado/            dominio/, aplicacao/portas/, infraestrutura/ e apresentacao/ comuns aos módulos
-└── composicao/               liga os casos de uso aos adaptadores
+└── composicao/               monta os casos de uso de cada módulo com os adaptadores concretos
 ```
 
 Um módulo só tem as pastas de camada que usa. Por exemplo, um módulo sem integração com terceiros não tem `infraestrutura/integracao/`.
@@ -48,16 +47,16 @@ Um módulo só tem as pastas de camada que usa. Por exemplo, um módulo sem inte
 | `infraestrutura/integracao/` | integração com APIs e sistemas de terceiros, como os sites de mapas do link "Abrir no mapa" e o relógio do sistema | adaptadores de saída |
 | `apresentacao/` | componentes React do módulo | adaptadores de entrada, junto com `app/` |
 | `src/app/` | páginas, layouts e rotas do Next.js | adaptadores de entrada |
-| `src/composicao/` | criação dos casos de uso com os adaptadores concretos | raiz de composição |
+| `src/composicao/` | um arquivo por módulo, que monta os casos de uso daquele módulo com os adaptadores concretos | raiz de composição |
 
 A pasta `src/app/` tem o nome imposto pelo App Router do Next.js e não se confunde com `aplicacao/`, a camada de aplicação de cada módulo: uma só existe em `src/`, e a outra só dentro de `src/modulos/<modulo>/`.
 
 Os padrões táticos do DDD (entidades, objetos de valor, agregados e repositórios) são usados onde o modelo pede, sem obrigatoriedade, porque o domínio do MVP é simples.
 
 ### Fluxo de uma requisição
-As páginas em `app/` obtêm os casos de uso prontos em `composicao/` e os chamam diretamente no servidor, sem passar pela API HTTP. Os casos de uso dependem apenas das portas, e os componentes de `apresentacao/` recebem o resultado.
+Os casos de uso ficam na pasta `aplicacao/` do seu módulo e conhecem apenas as portas, sem saber quais adaptadores as implementam. Em `composicao/`, um arquivo por módulo faz essa ligação: cria cada caso de uso com os adaptadores concretos (por exemplo, `buscarPontosPorItem` com o repositório SQL, o gerador de links de mapa e o relógio do sistema) e o exporta pronto para uso. A pasta não reúne os casos de uso, só os monta.
 
-A API HTTP versionada prevista no [ADR-001](ADR-001-estilo-arquitetural.md) fica em `app/api/v1/` e só é implementada quando houver quem a consuma, como o futuro aplicativo para celulares. Suas rotas serão adaptadores finos sobre os mesmos casos de uso, acompanhados de testes de contrato.
+As páginas em `app/` importam os casos de uso já montados de `composicao/` e os chamam diretamente no servidor, sem chamadas HTTP intermediárias, e os componentes de `apresentacao/` recebem o resultado. Nos testes, os mesmos casos de uso são criados com adaptadores em memória, sem passar por `composicao/`.
 
 ### Regras de importação
 Verificadas no CI por fitness functions, que bloqueiam o merge quando uma regra é violada:
@@ -78,16 +77,12 @@ Além disso:
 - Ciclos de dependência são proibidos.
 
 ### Fora de `src/`
-| Pasta ou arquivo | Conteúdo |
+| Pasta | Conteúdo |
 |---|---|
 | `banco/migracoes/` | migrações versionadas do esquema, em uma pasta única para todo o banco |
 | `banco/dados-iniciais/` | dados iniciais dos itens e dos pontos de descarte |
 | `scripts/` | carga de dados e utilitários de desenvolvimento |
 | `tests/e2e/` | testes de ponta a ponta, que atravessam a aplicação inteira |
-| `compose.yaml` | PostgreSQL com PostGIS para desenvolvimento e testes |
-| `.github/workflows/` | pipelines do GitHub Actions |
-| `docs/` | requisitos, ADRs e convenções do projeto |
-| `.specify/` e `specs/` | modelos do Spec Kit e especificações, planos e tarefas de cada funcionalidade |
 
 Os testes de unidade e de integração ficam ao lado do código que testam, dentro do módulo. Os nomes de arquivos, pastas e identificadores seguem a [convenção de código](../convencoes/codigo.md).
 
@@ -105,7 +100,6 @@ Os testes de unidade e de integração ficam ao lado do código que testam, dent
 - As regras de negócio não dependem de React, Next.js, ORM ou banco, e são testadas sem eles.
 - Trocar uma tecnologia (banco, site de mapas, ferramenta de métricas) significa escrever um novo adaptador, sem mudar o núcleo.
 - Um módulo pode ser extraído para outro serviço levando apenas a sua pasta.
-- A API HTTP pode ser criada depois apenas com rotas finas, sem mexer no negócio.
 - Os testes ficam perto do código e saem junto com o módulo.
 
 ### Custos e riscos
@@ -117,13 +111,11 @@ Os testes de unidade e de integração ficam ao lado do código que testam, dent
   - Mitigação: o `index.ts` expõe o que os outros módulos precisam; uma necessidade frequente de atalhos indica que os limites dos módulos devem ser revistos.
 - As regras de importação precisam acompanhar a estrutura.
   - Mitigação: a configuração das fitness functions fica versionada no repositório e muda junto com a estrutura.
-- Sem a API HTTP no MVP, o site pode evoluir sem considerar o futuro aplicativo.
-  - Mitigação: os casos de uso já são a fronteira, e a API, quando criada, terá testes de contrato.
 
 ### Alternativas descartadas
 - **Por camadas no topo (`src/dominio`, `src/aplicacao`, `src/infraestrutura`):** espalha cada assunto por várias pastas e esconde os módulos do monólito modular.
 - **Híbrida, com camadas no topo e módulos dentro delas:** mantém o espalhamento, e extrair um módulo exige juntar pedaços de várias pastas.
-- **Páginas consumindo a própria `/api/v1`:** acrescenta uma chamada HTTP a cada página, o que prejudica o desempenho em rede móvel.
+- **Páginas obtendo os dados por chamadas HTTP a rotas da própria aplicação:** acrescenta uma chamada de rede a cada página, o que prejudica o desempenho em rede móvel.
 - **Regras de importação só entre camadas:** os módulos poderiam importar as pastas internas uns dos outros e se acoplar sem perceber.
 - **Camada de aplicação chamada `casos-de-uso/`:** evitaria a semelhança com `app/`, mas as portas não são casos de uso, e `aplicacao` é o termo do [ADR-001](ADR-001-estilo-arquitetural.md), do DDD e da arquitetura em camadas.
 - **Testes em uma árvore separada, como o `src/test` do Maven:** afasta o teste do código e dificulta extrair um módulo com os seus testes.
@@ -137,4 +129,3 @@ Os testes de unidade e de integração ficam ao lado do código que testam, dent
 - Domain-Driven Design, Eric Evans: [Domain Language](https://www.domainlanguage.com/ddd/).
 - Estrutura de projetos do App Router: [Next.js Project Structure](https://nextjs.org/docs/app/getting-started/project-structure).
 - Verificação das regras de importação: [dependency-cruiser](https://github.com/sverweij/dependency-cruiser).
-- [Spec Kit](https://github.com/github/spec-kit).
