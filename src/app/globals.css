@@ -1,0 +1,131 @@
+:root {
+  --fundo: #ffffff;
+  --texto: #1b1f1d;
+  --texto-suave: #55605a;
+  --borda: #d9dfdb;
+  --destaque: #1f7a4d;
+  --destaque-texto: #ffffff;
+  --cartao: #f5f8f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #101412;
+    --texto: #e8ece9;
+    --texto-suave: #a3ada7;
+    --borda: #2c3430;
+    --destaque: #46b97c;
+    --destaque-texto: #0b1410;
+    --cartao: #171d1a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--texto);
+  background: var(--fundo);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pagina {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.pagina h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.75rem;
+}
+
+.pagina header p {
+  margin: 0 0 1.5rem;
+  color: var(--texto-suave);
+}
+
+.formulario-busca label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.formulario-busca__campos {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.formulario-busca input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem;
+  font: inherit;
+  color: inherit;
+  background: var(--fundo);
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+}
+
+.formulario-busca button,
+.lista-pontos__item a {
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--destaque-texto);
+  background: var(--destaque);
+  border: 0;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lista-pontos__resumo,
+.lista-pontos__vazia {
+  margin: 1.5rem 0 0.75rem;
+  color: var(--texto-suave);
+}
+
+.lista-pontos {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-pontos__item {
+  padding: 1rem;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 0.75rem;
+}
+
+.lista-pontos__item h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.125rem;
+}
+
+.lista-pontos__item p {
+  margin: 0 0 0.25rem;
+}
+
+.lista-pontos__observacoes,
+.lista-pontos__itens {
+  color: var(--texto-suave);
+  font-size: 0.9375rem;
+}
+
+.lista-pontos__item a {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
