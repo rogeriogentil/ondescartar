@@ -119,7 +119,7 @@ Os testes de unidade e de integração ficam ao lado do código que testam, dent
 - **Páginas obtendo os dados por chamadas HTTP a rotas da própria aplicação:** acrescenta uma chamada de rede a cada página, o que prejudica o desempenho em rede móvel.
 - **Regras de importação só entre camadas:** os módulos poderiam importar as pastas internas uns dos outros e se acoplar sem perceber.
 - **Camada de aplicação chamada `casos-de-uso/`:** evitaria a semelhança com `app/`, mas as portas não são casos de uso, e `aplicacao` é o termo do [ADR-001](ADR-001-estilo-arquitetural.md), do DDD e da arquitetura em camadas.
-- **Testes em uma árvore separada, como o `src/test` do Maven:** afasta o teste do código e dificulta extrair um módulo com os seus testes.
+- **Testes em uma árvore separada do código:** afasta o teste do código e dificulta extrair um módulo com os seus testes.
 
 ## Referências
 - [ADR-001: Estilo arquitetural da aplicação](ADR-001-estilo-arquitetural.md)
